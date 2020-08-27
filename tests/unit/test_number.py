@@ -1,6 +1,7 @@
 import pytest
 
-from checkarg import ArgumentOutOfRangeException, Number
+import checkarg.number as Number
+from checkarg.exceptions import ArgumentOutOfRangeException
 
 positive_numbers = [
     pytest.param(1, id="Number one"),

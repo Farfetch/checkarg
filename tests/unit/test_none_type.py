@@ -1,6 +1,7 @@
 import pytest
 
-from checkarg import ArgumentNoneException, NoneType
+import checkarg.none_type as NoneType
+from checkarg.exceptions import ArgumentNoneException
 
 valid_data = [
     pytest.param("", id="Empty string"),
