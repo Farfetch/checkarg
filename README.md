@@ -7,7 +7,7 @@ Guard clause library for Python projects, to validate arguments on every python 
 ### Using CheckArg to validate numbers
 In the following example we want to guarantee the first argument is a negative number and the second argument has a positive value or zero:
 ```python
-from checkarg import Number
+import checkarg.number as Number
 
 def doSomethingValid(negative_number: int, positive_number: int):
     Number.is_lower(negative_number, 0)
@@ -19,7 +19,7 @@ def doSomethingValid(negative_number: int, positive_number: int):
 ### Using CheckArg to validate text
 The following example requires the string of the first argument has some content, if it is None or empty or whith whitespaces, it will rise an exception. The second argument only requires to not be None or an empty message:
 ```python
-from checkarg import Text
+import checkarg.text as Text
 
 def doSomethingValid(title: str, body: str):
     Text.is_not_whitespace(title)
@@ -31,8 +31,11 @@ def doSomethingValid(title: str, body: str):
 ### Controlling the flow with the exceptions
 Whenever the CheckArg detects something wrong it will raise different exceptions by the context. This is an example controling the flow execution:
 ```python
-from checkarg import NoneType, Text, Number
-from checkarg import ArgumentNoneException, ArgumentException, ArgumentOutOfRangeException
+import checkarg.none_type as NoneType
+import checkarg.number as Number
+import checkarg.text as Text
+
+from checkarg.exceptions import ArgumentNoneException, ArgumentException, ArgumentOutOfRangeException
 
 
 def lookup_name(mapping, key: str, default: int):

@@ -1,6 +1,7 @@
 import pytest
 
-from checkarg import ArgumentException, Text
+import checkarg.text as Text
+from checkarg.exceptions import ArgumentException
 
 valid_string_data = [
     pytest.param("data", id="Simple string"),
