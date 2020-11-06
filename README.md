@@ -57,6 +57,7 @@ def lookup_name(mapping, key: str, default: int):
     return mapping[key]
 ```
 
+
 ### Installation
 Clone the repository with the following:
 
@@ -69,27 +70,18 @@ or add it to the project Pipfile:
 checkarg = { editable = true, git = "git clone https://github.com/Farfetch/checkarg.git" }
 ```
 
-## Contributing
 
+## Contributing
 Read the [Contributing guidelines](CONTRIBUTING.md)
 
 
-## Maintainers
+### Disclaimer
+By sending us your contributions, you are agreeing that your contribution is made subject to the terms of our [Contributor Ownership Statement](https://github.com/Farfetch/.github/blob/master/COS.md)
 
+
+## Maintainers
 List of [Maintainers](MAINTAINERS.md)
 
 
 ## License
-
 [MIT](LICENSE)
-
-
-## Other Documentation
-* [CHANGELOG.md](CHANGELOG.md)
-* [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-* [DEPENDENCIES.md](DEPENDENCIES.md)
-* [SECURITY.md](SECURITY.md)
-
-
-
-
