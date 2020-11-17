@@ -1,0 +1,36 @@
+name: Python package
+
+on:
+  push:
+    branches:    
+      - 'chore/publish-to-pypi'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6]
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install pipenv
+        python -m pipenv install 
+        python -m pipenv run pip install -e .
+    - name: Lint with flake8
+      run: |
+        python -m pipenv run flake8 --count	
+    - name: Test with pytest
+      run: |
+        python -m pipenv run black --check --diff .
+        python -m pipenv run flake8 --count	
+        python -m pipenv run python -m pytest -vv
+        
