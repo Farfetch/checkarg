@@ -21,58 +21,58 @@ negative_numbers = [
 @pytest.mark.parametrize("negative_number", negative_numbers)
 def test_is_lower__with_lower_number__does_nothing(negative_number):
     # Arrange & Act & Assert
-    _ = Number.is_lower(negative_number, 0)
+    Number.is_lower(negative_number, 0)
 
 
 @pytest.mark.parametrize("positive_number", positive_numbers)
-def test_is_lower__with_greater_number__rises_argument_out_of_range_exception(
+def test_is_lower__with_greater_number__raises_argument_out_of_range_exception(
     positive_number
 ):
     # Arrange & Act & Assert
     with pytest.raises(ArgumentOutOfRangeException):
-        _ = Number.is_lower(positive_number, 0)
+        Number.is_lower(positive_number, 0)
 
 
 @pytest.mark.parametrize("negative_number", negative_numbers)
 def test_is_lower_or_equals__with_lower_number__does_nothing(negative_number):
     # Arrange & Act & Assert
-    _ = Number.is_lower_or_equals(negative_number, -1)
+    Number.is_lower_or_equals(negative_number, -1)
 
 
 @pytest.mark.parametrize("positive_number", positive_numbers)
-def test_is_lower_or_equals__with_greater_number__rises_argument_out_of_range_exception(
+def test_is_lower_or_equals__with_greater_number__raises_argument_out_of_range_exception(
     positive_number
 ):
     # Arrange & Act & Assert
     with pytest.raises(ArgumentOutOfRangeException):
-        _ = Number.is_lower_or_equals(positive_number, 0)
+        Number.is_lower_or_equals(positive_number, 0)
 
 
 @pytest.mark.parametrize("positive_number", positive_numbers)
 def test_is_greater__with_greater_number__does_nothing(positive_number):
     # Arrange & Act & Assert
-    _ = Number.is_greater(positive_number, 0)
+    Number.is_greater(positive_number, 0)
 
 
 @pytest.mark.parametrize("negative_number", negative_numbers)
-def test_is_greater__with_greater_number__rises_argument_out_of_range_exception(
+def test_is_greater__with_greater_number__raises_argument_out_of_range_exception(
     negative_number
 ):
     # Arrange & Act & Assert
     with pytest.raises(ArgumentOutOfRangeException):
-        _ = Number.is_greater(negative_number, 0)
+        Number.is_greater(negative_number, 0)
 
 
 @pytest.mark.parametrize("positive_number", positive_numbers)
 def test_is_greater_or_equals__with_lower_number__does_nothing(positive_number):
     # Arrange & Act & Assert
-    _ = Number.is_greater_or_equals(positive_number, 1)
+    Number.is_greater_or_equals(positive_number, 1)
 
 
 @pytest.mark.parametrize("negative_number", negative_numbers)
-def test_is_greater_or_equals__with_greater_number__rises_argument_out_of_range_exception(
+def test_is_greater_or_equals__with_greater_number__raises_argument_out_of_range_exception(
     negative_number
 ):
     # Arrange & Act & Assert
     with pytest.raises(ArgumentOutOfRangeException):
-        _ = Number.is_greater_or_equals(negative_number, 0)
+        Number.is_greater_or_equals(negative_number, 0)

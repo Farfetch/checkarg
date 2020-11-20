@@ -14,12 +14,12 @@ valid_data = [
 @pytest.mark.parametrize("data", valid_data)
 def test_is_not_none__with_valid_data__does_nothing(data):
     # Arrange & Act & Assert
-    _ = NoneType.is_not_none(data)
+    NoneType.is_not_none(data)
 
 
-def test_is_not_none__with_invalid_data__rises_argument_none_exception():
+def test_is_not_none__with_invalid_data__raises_argument_none_exception():
     # Arrange
     data = None
     # & Act & Assert
     with pytest.raises(ArgumentNoneException):
-        _ = NoneType.is_not_none(data)
+        NoneType.is_not_none(data)
