@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 package_name = "checkarg"
 requirements = []
-setup_requirements = ["pytest-runner"]
+setup_requirements = ["pytest-runner", "wheel"]
 test_requirements = ["flake8==3.7.8", "pytest==5.2.0", "pytest-cov==2.8.1"]
 
 setup(
@@ -19,4 +19,5 @@ setup(
     author_email="opensource@farfetch.com",
     description="Guard clause library for Python projects, to validate arguments on every python function/method.",
     long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
 )

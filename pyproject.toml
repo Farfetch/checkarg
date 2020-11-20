@@ -1,0 +1,16 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = [
+    "flit_core >=2,<4",
+    "setuptools",
+]
+
+[tool.flit.metadata]
+module = "checkarg"
+author = "farfetch"
+author-email = "opensource@farfetch.com"
+home-page = "https://github.com/Farfetch/checkarg.git"
+classifiers = ["License :: OSI Approved :: MIT License"]
+dist-name = "checkarg"
+description-file = "README.md"
+requires-python = ">=3.6"

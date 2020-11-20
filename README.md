@@ -1,6 +1,14 @@
-![CheckArg](docs/imgs/CheckArg_complete.png)
+![CheckArg](https://raw.githubusercontent.com/Farfetch/checkarg/master/docs/imgs/CheckArg_complete.png)
 
 Guard clause library for Python projects, to validate arguments on every python function/method.
+
+
+## Installation
+You can install the latest version of this software from the Python package index (PyPI) as follows:
+
+```bash
+pip install --upgrade checkarg
+```
 
 ## Usage
 
@@ -55,19 +63,6 @@ def lookup_name(mapping, key: str, default: int):
         return default
 
     return mapping[key]
-```
-
-
-### Installation
-Clone the repository with the following:
-
-```bash
-git clone https://github.com/Farfetch/checkarg.git
-```
-
-or add it to the project Pipfile:
-```bash
-checkarg = { editable = true, git = "git clone https://github.com/Farfetch/checkarg.git" }
 ```
 
 
