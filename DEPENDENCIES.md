@@ -9,3 +9,4 @@
 | [pytest](https://pypi.org/project/pytest/) | 5.3.2 | MIT License (MIT license) | Makefile | dev | Python tests framework |
 | [twine](https://pypi.org/project/twine/) | 3.2.0 | Apache Software License | Makefile | dev | Python publishing tool |
 | [wheel](https://pypi.org/project/wheel/) | 0.35.1 | MIT License (MIT license) | Makefile | dev |  Python packager |
+| [mypy](https://pypi.org/project/mypy/) | 0.790 | MIT License (MIT license) | Makefile | dev | Optional static type checker |
