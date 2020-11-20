@@ -1,0 +1,39 @@
+name: Publish package to PyPI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.6]
+
+    steps:
+    - name: 🔌 Project Checkout
+      uses: actions/checkout@v2
+    - name: 🔌 Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: 🔌 Install dependencies
+      run: |
+        make install-dev
+    - name: 🎫 Validate project code
+      run: |
+        make validate
+    - name: 🎫 Run tests
+      run: |
+        make test
+    - name: 📦 Build a binary wheel and a source tarball
+      run: |
+        make build
+    - name: 📦 Publish distribution package to PyPI
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        skip_existing: true
+        password: ${{ secrets.PYPI_TOKEN }}        
