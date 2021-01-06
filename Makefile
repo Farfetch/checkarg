@@ -51,13 +51,16 @@ format:
 	@pipenv run isort -rc .
 	@pipenv run black .
 
-validate: validate-formating lint
+validate: validate-formating lint static-type-check
 
 validate-formating: 
 	@pipenv run black --check --diff .
 
 lint:
 	@pipenv run flake8 --count	
+
+static-type-check:
+	@pipenv run mypy .
 
 clean: clean-pyc clean-build
 

@@ -1,7 +1,8 @@
+from typing import List
 from setuptools import find_packages, setup
 
 package_name = "checkarg"
-requirements = []
+requirements: List[str] = []
 setup_requirements = ["pytest-runner", "wheel"]
 test_requirements = ["flake8==3.7.8", "pytest==5.2.0", "pytest-cov==2.8.1"]
 
