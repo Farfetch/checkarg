@@ -1,6 +1,6 @@
 from typing import Union
 
-from checkarg.exceptions import ArgumentOutOfRangeException
+from checkarg.exceptions import ArgumentOutOfRangeError, NumberErrorMessages
 
 
 def is_greater(
@@ -10,8 +10,11 @@ def is_greater(
     exception: Exception = None,
 ):
     if value < condition_value:
-        raise ArgumentOutOfRangeException(
-            argument_name
+        raise ArgumentOutOfRangeError(
+            NumberErrorMessages.is_greater_message(
+                argument_name, value, condition_value
+            ),
+            argument_name,
         ) if exception is None else exception
 
 
@@ -22,8 +25,9 @@ def is_lower(
     exception: Exception = None,
 ):
     if value > condition_value:
-        raise ArgumentOutOfRangeException(
-            argument_name
+        raise ArgumentOutOfRangeError(
+            NumberErrorMessages.is_lower_message(argument_name, value, condition_value),
+            argument_name,
         ) if exception is None else exception
 
 
@@ -34,8 +38,11 @@ def is_greater_or_equals(
     exception: Exception = None,
 ):
     if value < condition_value:
-        raise ArgumentOutOfRangeException(
-            argument_name
+        raise ArgumentOutOfRangeError(
+            NumberErrorMessages.is_greater_or_equals_message(
+                argument_name, value, condition_value
+            ),
+            argument_name,
         ) if exception is None else exception
 
 
@@ -46,6 +53,9 @@ def is_lower_or_equals(
     exception: Exception = None,
 ):
     if value > condition_value:
-        raise ArgumentOutOfRangeException(
-            argument_name
+        raise ArgumentOutOfRangeError(
+            NumberErrorMessages.is_lower_or_equals_message(
+                argument_name, value, condition_value
+            ),
+            argument_name,
         ) if exception is None else exception

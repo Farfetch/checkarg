@@ -43,23 +43,23 @@ import checkarg.none_type as NoneType
 import checkarg.number as Number
 import checkarg.text as Text
 
-from checkarg.exceptions import ArgumentNoneException, ArgumentException, ArgumentOutOfRangeException
+from checkarg.exceptions import ArgumentNoneError, ArgumentError, ArgumentOutOfRangeError
 
 
 def lookup_name(mapping, key: str, default: int):
     try:
         Number.is_greater(default, 0)
-    except ArgumentOutOfRangeException:
+    except ArgumentOutOfRangeError:
         return None
 
     try:
         NoneType.is_not_none(mapping)
-    except ArgumentNoneException:
+    except ArgumentNoneError:
         return default
     
     try:
         Text.is_not_empty(key)
-    except (ArgumentException, ArgumentNoneException) as e:
+    except (ArgumentError, ArgumentNoneError) as e:
         return default
 
     return mapping[key]
