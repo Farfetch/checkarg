@@ -31,15 +31,13 @@ build:
 
 install: install-pipenv
 	@pipenv install 
-	@pipenv run pip install -e .
 
 install-dev: install-pipenv	
 	@pipenv install 
 	@pipenv install --dev
-	@pipenv run pip install -e .
 
 install-pipenv:
-	@pip install pipenv
+	@pip3 install pipenv
 
 test: validate
 	@pipenv run python -m pytest -vv
