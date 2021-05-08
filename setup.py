@@ -1,4 +1,5 @@
 from typing import List
+
 from setuptools import find_packages, setup
 
 package_name = "checkarg"

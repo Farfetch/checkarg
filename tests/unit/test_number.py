@@ -1,7 +1,7 @@
 import pytest
 
 import checkarg.number as Number
-from checkarg.exceptions import ArgumentOutOfRangeException
+from checkarg.exceptions import ArgumentOutOfRangeError
 
 positive_numbers = [
     pytest.param(1, id="Number one"),
@@ -29,7 +29,7 @@ def test_is_lower__with_greater_number__raises_argument_out_of_range_exception(
     positive_number
 ):
     # Arrange & Act & Assert
-    with pytest.raises(ArgumentOutOfRangeException):
+    with pytest.raises(ArgumentOutOfRangeError):
         Number.is_lower(positive_number, 0)
 
 
@@ -44,7 +44,7 @@ def test_is_lower_or_equals__with_greater_number__raises_argument_out_of_range_e
     positive_number
 ):
     # Arrange & Act & Assert
-    with pytest.raises(ArgumentOutOfRangeException):
+    with pytest.raises(ArgumentOutOfRangeError):
         Number.is_lower_or_equals(positive_number, 0)
 
 
@@ -59,7 +59,7 @@ def test_is_greater__with_greater_number__raises_argument_out_of_range_exception
     negative_number
 ):
     # Arrange & Act & Assert
-    with pytest.raises(ArgumentOutOfRangeException):
+    with pytest.raises(ArgumentOutOfRangeError):
         Number.is_greater(negative_number, 0)
 
 
@@ -74,5 +74,5 @@ def test_is_greater_or_equals__with_greater_number__raises_argument_out_of_range
     negative_number
 ):
     # Arrange & Act & Assert
-    with pytest.raises(ArgumentOutOfRangeException):
+    with pytest.raises(ArgumentOutOfRangeError):
         Number.is_greater_or_equals(negative_number, 0)
