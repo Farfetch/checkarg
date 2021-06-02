@@ -1,7 +1,7 @@
 from typing import List, Union
 
 import checkarg.none_type as NoneType
-from checkarg.exceptions import ArgumentException
+from checkarg.exceptions import ArgumentError, TextErrorMessages
 
 
 def is_not_whitespace(
@@ -9,7 +9,9 @@ def is_not_whitespace(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if len(value.strip()) <= 0:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_not_whitespace_message(argument_name), argument_name
+        ) if exception is None else exception
 
 
 def is_not_empty(
@@ -19,7 +21,9 @@ def is_not_empty(
     if isinstance(value, str):
         value = value.strip()
     if len(value) <= 0:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_not_empty_message(argument_name), argument_name
+        ) if exception is None else exception
 
 
 def is_alphanumeric(
@@ -27,7 +31,10 @@ def is_alphanumeric(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if not value.isalnum():
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_alphanumeric_message(argument_name, value),
+            argument_name,
+        ) if exception is None else exception
 
 
 def is_alphabetic(
@@ -35,7 +42,9 @@ def is_alphabetic(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if not value.isalpha():
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_alphabetic_message(argument_name, value), argument_name
+        ) if exception is None else exception
 
 
 def is_number(
@@ -45,7 +54,9 @@ def is_number(
     try:
         float(value)
     except Exception:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_number_message(argument_name, value), argument_name
+        ) if exception is None else exception
 
 
 def is_integer(
@@ -55,7 +66,9 @@ def is_integer(
     try:
         int(value)
     except Exception:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_integer_message(argument_name, value), argument_name
+        ) if exception is None else exception
 
 
 def is_lowercase(
@@ -63,7 +76,9 @@ def is_lowercase(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if not value.islower():
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_lowercase_message(argument_name, value), argument_name
+        ) if exception is None else exception
 
 
 def is_uppercase(
@@ -71,7 +86,9 @@ def is_uppercase(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if not value.isupper():
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_uppercase_message(argument_name, value), argument_name
+        ) if exception is None else exception
 
 
 def has_length(
@@ -79,7 +96,10 @@ def has_length(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if len(value) != length:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.has_length_message(argument_name, len(value), length),
+            argument_name,
+        ) if exception is None else exception
 
 
 def has_length_between(
@@ -92,7 +112,12 @@ def has_length_between(
     NoneType.is_not_none(value, argument_name, exception)
     value_length = len(value)
     if value_length < min_lenght or value_length > max_lenght:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.has_length_between_message(
+                argument_name, len(value), min_lenght, max_lenght
+            ),
+            argument_name,
+        ) if exception is None else exception
 
 
 def is_equal_to(
@@ -100,7 +125,10 @@ def is_equal_to(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if value != expected:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_equal_to_message(argument_name, value, expected),
+            argument_name,
+        ) if exception is None else exception
 
 
 def is_not_equal_to(
@@ -108,4 +136,7 @@ def is_not_equal_to(
 ) -> None:
     NoneType.is_not_none(value, argument_name, exception)
     if value == expected:
-        raise ArgumentException(argument_name) if exception is None else exception
+        raise ArgumentError(
+            TextErrorMessages.is_not_equal_to_message(argument_name, value),
+            argument_name,
+        ) if exception is None else exception

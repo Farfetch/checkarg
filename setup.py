@@ -1,4 +1,5 @@
 from typing import List
+
 from setuptools import find_packages, setup
 
 package_name = "checkarg"
@@ -8,7 +9,7 @@ test_requirements = ["flake8==3.7.8", "pytest==5.2.0", "pytest-cov==2.8.1"]
 
 setup(
     name=package_name,
-    version="0.0.2",
+    version="0.1.0",
     url="https://github.com/Farfetch/checkarg.git",
     license="MIT License (MIT)",
     include_package_data=True,
