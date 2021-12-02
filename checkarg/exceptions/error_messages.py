@@ -81,3 +81,37 @@ class TextErrorMessages:
     @staticmethod
     def is_not_equal_to_message(argument_name, value):
         return f"Argument {argument_name} shouldn't be equal to {value}"
+
+
+class ListErrorMessages:
+    @staticmethod
+    def is_not_empty_message(argument_name):
+        return f"Argument {argument_name} shouldn't be empty"
+
+    @staticmethod
+    def has_length_lower_message(argument_name, condition_value):
+        return f"The length of argument {argument_name} should be lower than {condition_value}"
+
+    @staticmethod
+    def has_length_greater_message(argument_name, condition_value):
+        return f"The length of argument {argument_name} should be higher than {condition_value}"
+
+    @staticmethod
+    def has_length_equals_message(argument_name, condition_value):
+        return f"The length of argument {argument_name} should be equals to {condition_value}"
+
+    @staticmethod
+    def contains_message(argument_name, element):
+        return f"The element {element} is not present in the argument {argument_name}"
+
+    @staticmethod
+    def all_elements_of_same_type_message(argument_name):
+        return f"All the elements of the argument {argument_name} should be of the same type"
+
+    @staticmethod
+    def all_elements_of_type_message(argument_name, type):
+        return f"All the elements of the argument {argument_name} should be of the type {type}"
+
+    @staticmethod
+    def has_not_repeated_elements_message(argument_name):
+        return f"Argument {argument_name} shouldn't have repeated values"
